@@ -1,0 +1,16 @@
+###
+samtools idxstats WBDC_338_2016-04-07_deduped.bam | awk ' {s+=$3+$4} END {print s}' 
+###
+samtools idxstats WBDC_338_2016-04-07_deduped.bam | awk ' {s+=$3} END {print s}' 
+
+module load bedtools/2.17.0
+
+#calculate the coverage with bedtools and get the hist file:
+bedtools coverage -hist -abam WBDC_338_2016-04-07_deduped.bam -b /home/morrellp/llei/Shared/shared/References/Reference_Sequences/Barley/Morex/Morex_Reference_ExCap_Design.bed  >/home/morrellp/llei/Deleterious_mutation_project/Inversion/coverage_hist/WBDC_338_2016-04-07_deduped.coverage.hist.txt
+
+#count how many lines without coverage information
+grep "all" /home/morrellp/llei/Deleterious_mutation_project/Inversion/coverage_hist/WBDC_338_2016-04-07_deduped.coverage.hist.txt|wc -l
+
+#use datamash to calculate the quantile and mean for the hist files
+head -n -3027 /home/morrellp/llei/Deleterious_mutation_project/Inversion/coverage_hist/WBDC_338_2016-04-07_deduped.coverage.hist.txt|./datamash --no-strict min 4 q1 4 median 4 mean 4 q3 4 max 4
+

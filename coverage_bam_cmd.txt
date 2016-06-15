@@ -16,7 +16,7 @@ bedtools coverage -hist -abam WBDC_338_2016-04-07_deduped.bam -b /home/morrellp/
 
 #count how many lines without coverage information because .coverage.hist.txt file contains some lines in the end which don't have coverage information
 grep "all" /home/morrellp/llei/Deleterious_mutation_project/Inversion/coverage_hist/WBDC_338_2016-04-07_deduped.coverage.hist.txt|wc -l
-3027
+#3027
 #use datamash to calculate the quantile and mean for the hist files here 3027 is get from the above cmd line "grep "all" coverage.hist.file|wc -l
 head -n -3027 /home/morrellp/llei/Deleterious_mutation_project/Inversion/coverage_hist/WBDC_338_2016-04-07_deduped.coverage.hist.txt|./datamash --no-strict min 4 q1 4 median 4 mean 4 q3 4 max 4
 

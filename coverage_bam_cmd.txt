@@ -1,4 +1,6 @@
-###in the below commandlines, please replace "WBDC_338_2016-04-07_deduped.bam" with your BAM file
+#Those command lines are for calculate the reads numbers, mapped reads numbers and coverage informations for bam files:
+
+#in the below commandlines, please replace "WBDC_338_2016-04-07_deduped.bam" with your BAM file
 #Count how many reads in total in the BAM file
 samtools idxstats WBDC_338_2016-04-07_deduped.bam | awk ' {s+=$3+$4} END {print s}' 
 #Count how many reads mapped to the reference in the BAM file

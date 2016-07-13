@@ -1,0 +1,2 @@
+###convert multiple fasta files into single line fasta file
+perl -pe '/^>/ ? print "\n" : chomp' TAIR10_cds_20110103_representative_gene_model_updated >test

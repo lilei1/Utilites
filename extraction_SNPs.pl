@@ -16,7 +16,9 @@ print "$header";
 foreach my $row (<SNPID>){
         chomp $row;
         my @rtemp = split(/\t/,$row);
-        $gidhash{$rtemp[0]}=$row;
+        my $g_id = $rtemp[0];
+           $g_id =~ s/^\s+|\s+$|^\t+|\t+$//g;
+           $gidhash{$g_id}=$row;
         #print "$rtemp[0]\n";
 }
 close (SNPID);

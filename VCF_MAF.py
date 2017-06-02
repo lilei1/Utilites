@@ -4,7 +4,7 @@
 #   A script to calculate the alt allele frequency in a VCF file
 #   This is useful for calculate the minor allele frequency from vcf file
 # adapted from Tomo Kono https://github.com/TomJKono/Misc_Utils/blob/master/VCF_To_Htable.py and https://github.com/TomJKono/Misc_Utils/blob/master/VCF_MAF.py
-
+#usage: python3 VCF_MAF.py yourSNP.vcf >yourSNP.maf
 import sys
 
 #   A function to calculate the minor allele frequency

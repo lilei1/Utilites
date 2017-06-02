@@ -9,7 +9,7 @@ import sys
 
 #   A function to calculate the minor allele frequency
 def MAF(x):
-    #   get the set of genotypes in the list
+    #   get the set of alleles in the list
     genotypes = set(x)
     #   start counting up the frequencies
     freqs = []
@@ -26,7 +26,7 @@ with open(sys.argv[1], 'r') as f:
             continue
         #   This defines how many samples in the VCF
         elif line.startswith('#CHROM'):
-             print ('Chrom\tPos\tChr_NB\tMinor\tMajor\tMAF')
+             print ('Chrom\tPos\tsample_NB\tMinor\tMajor\tMAF\tnotes')
         else:
             tmp = line.strip().split('\t')
             #   Parse out the relevant information
@@ -37,9 +37,9 @@ with open(sys.argv[1], 'r') as f:
             
             genotypes = tmp[9:] 
 
-            INFO = tmp[7].split(';')
-            AN = INFO[2].split('=')
-            chr_nb = int(AN[1])/2
+            #INFO = tmp[7].split(';')
+            #AN = INFO[2].split('=')
+            #chr_nb = int(AN[1])/2
             #print (chromosome,bp_pos,ref_allele,alt_alleles,chr_nb)
 
             format = tmp[8].split(':')
@@ -51,7 +51,6 @@ with open(sys.argv[1], 'r') as f:
                 notes = 'Missing Genotype Call'
                 maf = "NA"
                 print (maf)
-                #print '\t'.join([chromosome,bp_pos, ref_allele, alt_alleles, chr_nb,"NA"] + [notes])
             else:
                 notes = ''
                 #   Which column is the AD?
@@ -65,24 +64,29 @@ with open(sys.argv[1], 'r') as f:
                 	#   the are listed in the form allele1/allele2
                 	#   with 0 = ref, 1 = alt1, 2 = alt2, and so on...
                 	alleles = call.split('/')
-                	individual_call = ''
+                	individual_call = '' #define a dictionary for all of the alleles 
                 	for x in alleles:
-                    		if x == '.':
-                        		individual_call += 'N'
+                    		if x == '.': #ignor the missing data
+                    			continue
+                    			#g_column.append( 'N')
+                        		#individual_call += 'N'
                     		else:
-                        		#   cast to integer so we can use it in slicing a list
                         		c = int(x)
                         		#   if it's 0, we just tack on the reference state
                         		if c == 0:
-                            			individual_call += ref_allele
+                        			    g_column.append(ref_allele)
+                            			#individual_call += ref_allele
                         		else:
-                            		#   Otherwise, we use it to slice the list of alternate alleles
-                            			individual_call += alt_alleles[c-1]
+                            		#   Otherwise, we use it to alternate alleles
+                            			g_column.append(alt_alleles)
+                            			#individual_call += alt_alleles
                 	#   Then append the individual call to the column for the genotype matrix
-                	g_column.append(individual_call)
+                	#g_column.append(individual_call)
+                	#print (len(g_column))
             #   Then, append that column to the genotype matrix
             #   If there is no variation in genotype calls (that is, all lines have the same genotype)
             #   then we don't care about it
+            		#print (g_column)
             		unique_calls = set(g_column)
             		if len(unique_calls) <= 1:
                 		maf = "NA"
@@ -91,5 +95,6 @@ with open(sys.argv[1], 'r') as f:
 
 
             #print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, chr_nb, maf]))
-            print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, str(chr_nb), str(maf)]))
-
+            print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, str(len(g_column)/2), str(maf)])+[notes])
+            #print (g_column)
+            #print (leng_column)

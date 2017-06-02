@@ -26,7 +26,7 @@ with open(sys.argv[1], 'r') as f:
             continue
         #   This defines how many samples in the VCF
         elif line.startswith('#CHROM'):
-             print ('Chrom\tPos\tsample_NB\tMinor\tMajor\tMAF\tnotes')
+             print ('Chrom\tPos\tsample_NB\tMinor\tMajor\tMAF')
         else:
             tmp = line.strip().split('\t')
             #   Parse out the relevant information
@@ -95,6 +95,6 @@ with open(sys.argv[1], 'r') as f:
 
 
             #print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, chr_nb, maf]))
-            print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, str(len(g_column)/2), str(maf)])+[notes])
+            print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, str(len(g_column)/2), str(maf)]))
             #print (g_column)
             #print (leng_column)

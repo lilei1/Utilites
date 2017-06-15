@@ -57,28 +57,28 @@ with open(sys.argv[1], 'r') as f:
                 #AD_pos = format.index('AD')
                 #   For each sample...
                 g_column = []
-            	for g in genotypes:
+                for g in genotypes:
                 	#   In the genotype string, the first element (separated by :) is the actual genotype call
-                	call = g.split(':')[0]
+                    call = g.split(':')[0]
                 	#   These are diploid calls, and we are assuming they are unphased
                 	#   the are listed in the form allele1/allele2
                 	#   with 0 = ref, 1 = alt1, 2 = alt2, and so on...
-                	alleles = call.split('/')
-                	individual_call = '' #define a dictionary for all of the alleles 
-                	for x in alleles:
-                    		if x == '.': #ignor the missing data
-                    			continue
+                    alleles = call.split('/')
+                    individual_call = '' #define a dictionary for all of the alleles 
+                    for x in alleles:
+                        if x == '.': #ignor the missing data
+                            continue
                     			#g_column.append( 'N')
                         		#individual_call += 'N'
-                    		else:
-                        		c = int(x)
+                        else:
+                            c = int(x)
                         		#   if it's 0, we just tack on the reference state
-                        		if c == 0:
-                        			    g_column.append(ref_allele)
+                            if c == 0:
+                                g_column.append(ref_allele)
                             			#individual_call += ref_allele
-                        		else:
+                            else:
                             		#   Otherwise, we use it to alternate alleles
-                            			g_column.append(alt_alleles)
+                                g_column.append(alt_alleles)
                             			#individual_call += alt_alleles
                 	#   Then append the individual call to the column for the genotype matrix
                 	#g_column.append(individual_call)
@@ -87,11 +87,11 @@ with open(sys.argv[1], 'r') as f:
             #   If there is no variation in genotype calls (that is, all lines have the same genotype)
             #   then we don't care about it
             		#print (g_column)
-            		unique_calls = set(g_column)
-            		if len(unique_calls) <= 1:
-                		maf = "NA"
-            		else:
-                		maf = MAF(g_column)
+                    unique_calls = set(g_column)
+                    if len(unique_calls) <= 1:
+                        maf = "NA"
+                    else:
+                        maf = MAF(g_column)
 
 
             #print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, chr_nb, maf]))

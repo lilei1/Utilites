@@ -4,7 +4,7 @@ Several version of SIFT can not work, including sift6.2.1 and sift4. There are b
 
 Tom send me the version sift-5.2.2, and it works, but compile is a little tricky.
 
-### Instal perl modules
+### Install perl modules
 
 - Getopt::Std
 - POSIX
@@ -45,9 +45,9 @@ perl -MTie::IxHash -e 1
 
 #If no error, that suggests this module installed
 ```
--   Download and install `ncbi-blast-2.2.29+`
+### Download and install `ncbi-blast-2.2.29+`
 
--   Setting paths
+### Setting paths
 
     Navigate to <SIFT_HOME>/config
 
@@ -59,7 +59,7 @@ perl -MTie::IxHash -e 1
 
     perl setup_env.pl linux
 
--   Go to src/, and follow README directions to compile the source code
+### Go to src/, and follow README directions to compile the source code
 ```
     vi cccb.csh
     #check if the path is correct
@@ -70,7 +70,7 @@ perl -MTie::IxHash -e 1
     csh cccb.csh psiblast_res_to_fasta_dbpairwise
     csh cccb.csh seqs_from_psiblast_res
 ```
-- test
+### test
 
 ```
 echo "module load perl/modules && csh /panfs/roc/groups/9/morrellp/llei/software/sift5.2.2/bin/SIFT_for_submitting_fasta_seq.csh /panfs/roc/groups/9/morrellp/llei/software/sift5.2.2/test/lacI.fasta /panfs/roc/scratch/llei/uniref_pro/uniref90.fa /panfs/roc/groups/9/morrellp/llei/software/sift5.2.2/test/lacI.subst"|qsub -l mem=44gb,nodes=1:ppn=7,walltime=24:00:00 -m abe -M llei@umn.edu -N filter_out_indels_inversion -q small

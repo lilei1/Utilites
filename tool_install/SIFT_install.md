@@ -58,6 +58,17 @@ perl -MTie::IxHash -e 1
     Run the following command:
 
     perl setup_env.pl linux
+    
+    The content of `config_env.txt`
+    
+```
+    #SITE_PERL=/usr/bin/
+    SIFT_HOME=/panfs/roc/groups/9/morrellp/llei/software/sift5.2.2
+    TMP_DIR=/panfs/roc/scratch/llei/SIFT
+    BLAST_HOME=/panfs/roc/groups/9/morrellp/llei/software/ncbi-blast/2.2.29
+    BLIMPS_HOME=/panfs/roc/groups/9/morrellp/llei/software/sift5.2.2/blimps
+    #PERL_LIB=/usr/local/lib/perl5/site_perl/5.12.0
+ ```
 
 ### Go to src/, and follow README directions to compile the source code
 ```

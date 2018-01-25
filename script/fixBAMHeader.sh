@@ -2,6 +2,7 @@
 
 set -eo pipefail
 
+# this script will work on individual bam before you merge. Only reheader the insividual bams, and then you can merge reheaded bams with bamtools.
 #   Check for dependencies
 $(type readarray > /dev/null 2> /dev/null) || (echo "Please use BASH 4 or higher for this script" >&2; exit 1)
 $(command -v samtools > /dev/null 2> /dev/null) || (echo "Please install SAMTools for this script" >&2; exit 1)

@@ -150,4 +150,7 @@ We can test the data
 
 Creat the sub file and protein fasta file:
 
+```
+echo "module load perl/modules.centos7.5.26.1 && perl /panfs/roc/scratch/llei/pph2/bin/run_pph.pl -s /panfs/roc/groups/9/morrellp/llei/Inversion/PPH2/test/HORVU0Hr1G040480_1.fasta /panfs/roc/groups/9/morrellp/llei/Inversion/PPH2/test/HORVU0Hr1G040480.1_non_subs 1>/panfs/roc/groups/9/morrellp/llei/Inversion/PPH2/test/HORVU0Hr1G040480.1.features 2>/panfs/roc/groups/9/morrellp/llei/Inversion/PPH2/test/run_HORVU0Hr1G040480.1.log"|qsub -l mem=62gb,nodes=1:ppn=7,walltime=96:00:00 -m abe -M llei@umn.edu -N HORVU0Hr1G040480_1 -q small
+```
 

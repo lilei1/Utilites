@@ -13,9 +13,11 @@ def MAF(x):
     genotypes = set(x)
     #   start counting up the frequencies
     freqs = []
+    alleles = {}#create a dictionary for the alleles
     for g in genotypes:
         freqs.append(x.count(g)/float(len(x)))
-    return min(freqs)
+        alleles[g] = x.count(g)
+    return max(alleles, key=alleles.get), min(alleles, key=alleles.get), min(freqs)
 
 
 #   Start iterating through the file
@@ -26,7 +28,7 @@ with open(sys.argv[1], 'r') as f:
             continue
         #   This defines how many samples in the VCF
         elif line.startswith('#CHROM'):
-             print ('Chrom\tPos\tsample_NB\tMinor\tMajor\tMAF')
+             print ('Chrom\tPos\tsample_NB\tMajor\tMinor\tMAF')
         else:
             tmp = line.strip().split('\t')
             #   Parse out the relevant information
@@ -89,13 +91,14 @@ with open(sys.argv[1], 'r') as f:
             		#print (g_column)
                     unique_calls = set(g_column)
                     if len(unique_calls) <= 1:
+                        major = "-"
+                        minor = "-"
                         maf = "NA"
                     else:
-                        maf = MAF(g_column)
+                        major, minor, maf = MAF(g_column)
  
 
             #print ('\t'.join([chromosome, bp_pos, ref_allele, alt_alleles, chr_nb, maf]))
-            print ('\t'.join([chromosome, bp_pos, str(int(len(g_column)/2)), ref_allele, alt_alleles, str(maf)]))
+            print ('\t'.join([chromosome, bp_pos, str(int(len(g_column)/2)), major, minor, str(maf)]))
             #print (g_column)
             #print (leng_column)
-

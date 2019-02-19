@@ -1,0 +1,41 @@
+Submit the bioProject
+get the bioproject number
+
+Submit the biosample, this need the Biosample_plants sheet and output is the attributes excel spreadsheet
+Then submit the meta data file using SRA, this need to link the actual fastq data to the name
+
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_6/*.fastq subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498108
+
+#1
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_6/*.fastq  subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498108
+
+#2
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_9/*.fastq  subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498160
+
+#3
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_8/*.fastq  subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498141
+
+
+#4
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_7/*.fastq  subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498110
+
+
+
+#5
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_5/*.fastq  subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498048
+
+
+#6
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_4/*.fastq subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498040
+
+
+#7
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 --file-checksum=md5 --overwrite=diff -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_3/*.fastq subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498022
+
+
+#8
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_2/*.fastq subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4498002
+
+
+#9
+ascp -i /nfs/roc/groups/9/morrellp/shaw0170/SRA/aspera.openssh.txt -QT -l100m -k1 -d /panfs/roc/scratch/SORTED_BRIDG6_FASTQ/fastq_files/SRA_metadata_bridge_6_group_1/*.fastq subasp@upload.ncbi.nlm.nih.gov:uploads/shaw0170@umn.edu_wAwlZ9m1/SUB4495236

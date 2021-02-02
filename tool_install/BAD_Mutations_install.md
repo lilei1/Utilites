@@ -40,7 +40,7 @@ export PASTA_TOOLS_DEVDIR="${CONDA_PREFIX}/bin"
 
 vi ${CONDA_PREFIX}/etc/conda/deactivate.d/env_vars.sh
 
-# Then add the content into above file:
+Then add the content into above file:
 
 ```
 #!/bin/sh
@@ -56,7 +56,7 @@ conda activate bad_mutations
 
 ```
 
-# install mafft
+Install mafft
 
 ```
 conda install -c bioconda mafft -n bad_mutations
@@ -71,7 +71,7 @@ ln -s /global/cscratch1/sd/llei2019/conda_envs/bad_mutations/bin/mafft mafft
 
 ```
 
-#install hmmer
+Install hmmer
 
 ```
 conda install -c bioconda hmmer -n bad_mutations
@@ -81,7 +81,9 @@ cd /global/cscratch1/sd/llei2019/conda_envs/bad_mutations/lib/python3.7/site-pac
 ln -s /global/cscratch1/sd/llei2019/conda_envs/bad_mutations/bin/hmmeralign hmmeralign
 
 ```
+
 set the correct link for other pieces:
+
 
 ```
 ln -s /global/cscratch1/sd/llei2019/conda_envs/bad_mutations/bin/opal.jar opal.jar

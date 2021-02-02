@@ -38,7 +38,9 @@ Then add the content into above file:
 export PASTA_TOOLS_DEVDIR="${CONDA_PREFIX}/bin"
 ```
 
+```
 vi ${CONDA_PREFIX}/etc/conda/deactivate.d/env_vars.sh
+```
 
 Then add the content into above file:
 
